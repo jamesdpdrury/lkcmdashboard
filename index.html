@@ -10,9 +10,9 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="LK Company Management Dashboard" />
+<meta name="apple-mobile-web-app-title" content="LK Stage Management Dashboard" />
 <link rel="manifest" href="/site.webmanifest" /> 
-<title>LK London - Company Management Dashboard</title>   
+<title>LK London - Stage Management Dashboard</title>   
 </head>
 <body>
 
@@ -26,21 +26,39 @@
     </div>
   </div>
 
-    <div class="title"><img src="Logo.png" alt="Lion King Logo">Company Management Dashboard</div>
-    <button id="syncHolidaysFromCalendar">Sync Cast Holidays</button>
-    <a href="coveringtext.html" target="_self"><button id="openContent">Daily Offs Text</button></a>
-    <button id="sendDailyOffsPDF">Email Daily Offs</button>
+    <div class="title"><img src="Logo.png" alt="Lion King Logo">Stage Management Dashboard</div>
+    <button id="clearCellsAndReplace">Reset Show Report<br>& Tick Sheet</button>
+    <div class="updated" id="lapsedtime"></div>
+    <button id="clearCells">Clear Tick Sheet</button>
+    <div class="updated" id="updatedTick"></div>
+    <button id="emailPDF" class="dontShow">Email Tick Sheet</button>
+    <div class="updated dontShow" id="updatedEmailPDF"></div>
 
+    <a href="coveringtext.html" target="_self"><button id="openContent">Covering Text</button></a>
+    <a href="half.html" target="_self"><button id="openContent">The Half</button></a>
+    <a href="rota.html" target="_self"><button id="openContent">Todays Rota</button></a>
+    <a href="https://docs.google.com/spreadsheets/d/1HGcwq9IXT-wbrV9xaLIQ1-wvlkFmNN1wwrJ5_yUx0Vk/edit?gid=0#gid=0" target="_self"><button class="googleSheets">Rehearsal Report</button></a>
 
+    <a href="https://docs.google.com/spreadsheets/d/1uq6hFeO_qfsBG36TAEoAVO3NZka9Mb1BZsQvsevRgIE" target="_self"><button id="openContent">Technical Schedules</button></a>
+    <a href="https://docs.google.com/spreadsheets/d/1SEpikh_MVSAIgw6drUK8OLg8Ro-sQGoYh15HHrWGj_8/edit?gid=501409457#gid=501409457" target="_self"><button class="googleSheets">Time Sheets</button></a>
+    <a href="holiday.html" target="_self"><button id="openContent">Holiday Dashboard</button></a>
+    <a href="https://docs.google.com/spreadsheets/d/1PSqT6NmRORKKbxPgnp7vSYbHdxstKL5v5eKA3_VAiL4/edit?gid=71759434#gid=71759434" target="_self"><button>Rehearsal/Dance Class Tick Sheet</button></a>
+    <a href="links.html" target="_self"><button id="openContent">Other Useful Links</button></a>
 
-   <a href="links.html" target="_self"><button id="openContent">Other Useful Links</button></a>
-
-        <footer>Version 1.0 - <a id="openOverlay">Changes Log</a> - Built by James Drury</footer>
+        <footer>Version 1.8 - <a id="openOverlay">Changes Log</a> - Built by James Drury</footer>
 
         <div id="overlay" class="overlay hidden">
             <div class="overlay-content">
                 <h2>Changes Log</h2>
                 <ul>
+                    <li>Version 1.8 - Added "Rehearsal Report" to front page. Added link to "Mark Up" folder in "Other Useful Links"</li>
+                    <li>Version 1.7 - Fixed back button on "Covering Text"</li>
+                    <li>Version 1.6 - Added "Technical Schedules" link. Added "Auto Cue Numbers" link to "Other Useful Links"</li>
+                    <li>Version 1.5 - Added "Rehearsal/Dance Class Tick Sheet". Removed Danny and added Ed to "Holiday Dashboard".</li>
+                    <li>Version 1.4 - Tweaked "Todays Rota" when the day has finished, or not a show day. Added password protection.</li>
+                    <li>Version 1.3 - Added "Time sheets" section. Added "Other Useful Link" section.</li>
+                    <li>Version 1.2 - Added "Todays Rota" section. Tweaked show report reset info and styling.</li>
+                    <li>Version 1.1 - Added "Holiday Dashboard" section</li>
                     <li>Version 1.0 - Initial release.</li>
                     <!-- Add more entries here -->
                 </ul>
@@ -54,9 +72,10 @@
 
         
     
-    <iframe style="display: none;" src="https://script.google.com/macros/s/AKfycbyTxNQX_oYRx0Axm-skz99yV7C0__OIsDzRoT7WkGRxRlmD_l-oisTfUgQrOv-haQSRbA/exec" id="data-iframe"></iframe>
+    <iframe style="display: none;" src="https://script.google.com/macros/s/AKfycbxvszGKpBE_PBVy3vn0abPpv9MPTMI1J4-xxfaCkE8uT0mz6akybgYLVtOUSkP1PdUL2Q/exec" id="data-iframe"></iframe>
 
     <script src="script.js"></script>
+    <script src="updates.js"></script>
   
     <script>
         document.getElementById('openOverlay').addEventListener('click', function (event) {
