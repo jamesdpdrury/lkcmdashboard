@@ -82,6 +82,7 @@ function showConfirmationDialog(message) {
 
 document.getElementById('syncHolidaysFromCalendar').addEventListener('click', () => triggerAction('syncHolidaysFromCalendar'));
 document.getElementById('sendDailyOffsPDF').addEventListener('click', () => triggerAction('sendDailyOffsPDF'));
+document.getElementById('sendPrincipalPencilsEmail').addEventListener('click', () => triggerAction('sendPrincipalPencilsEmail'));
 
 
 const correctPassword = "1975"; // Replace with your actual password
