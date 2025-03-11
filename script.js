@@ -1,13 +1,9 @@
-const webAppUrl = 'https://script.google.com/macros/s/AKfycbxpxjI9k4R20zzwY8roL87oB0s_58EB1gsC2MEDYhKlVgqAnknIxACq2SgQCkPRI9f3Nw/exec';
+const webAppUrl = 'https://script.google.com/macros/s/AKfycbyTxNQX_oYRx0Axm-skz99yV7C0__OIsDzRoT7WkGRxRlmD_l-oisTfUgQrOv-haQSRbA/exec';
 
 // Mapping of action names to user-friendly names
 const actionNames = {
-    'clearCellsAndReplace': 'reset the Show Report & Tick Sheet',
-    'clearAndReplace': 'reset Show Report',
-    'clearCells': 'clear the Tick Sheet',
-    'generateCoveringReportPDF': 'generate Covering PDF',
-    'generateShowReportPDF': 'generate Show Report PDF',
-    'emailPDF': 'email the Tick Sheet'
+    'syncHolidaysFromCalendar': 'Sync Cast Holidays',
+    'sendDailyOffsPDF': 'Email Daily Offs'
 };
 
 async function triggerAction(action) {
@@ -83,9 +79,8 @@ function showConfirmationDialog(message) {
 }
 
 
-document.getElementById('clearCellsAndReplace').addEventListener('click', () => triggerAction('clearCellsAndReplace'));
-document.getElementById('clearCells').addEventListener('click', () => triggerAction('clearCells'));
-document.getElementById('emailPDF').addEventListener('click', () => triggerAction('emailPDF'));
+document.getElementById('syncHolidaysFromCalendar').addEventListener('click', () => triggerAction('syncHolidaysFromCalendar'));
+document.getElementById('sendDailyOffsPDF').addEventListener('click', () => triggerAction('sendDailyOffsPDF'));
 
 
 const correctPassword = "1975"; // Replace with your actual password
