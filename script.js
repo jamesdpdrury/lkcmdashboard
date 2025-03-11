@@ -3,6 +3,7 @@ const webAppUrl = 'https://script.google.com/macros/s/AKfycbyTxNQX_oYRx0Axm-skz9
 // Mapping of action names to user-friendly names
 const actionNames = {
     'syncHolidaysFromCalendar': 'Sync Cast Holidays',
+    'sendPrincipalPencilsEmail': 'Send Principal Pencils Email',
     'sendDailyOffsPDF': 'Email Daily Offs'
 };
 
