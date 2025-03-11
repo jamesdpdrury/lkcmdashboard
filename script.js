@@ -4,6 +4,7 @@ const webAppUrl = 'https://script.google.com/macros/s/AKfycbyTxNQX_oYRx0Axm-skz9
 const actionNames = {
     'syncHolidaysFromCalendar': 'Sync Cast Holidays',
     'sendPrincipalPencilsEmail': 'Send Principal Pencils Email',
+    'sendHolidayEmail': 'Send Holiday Email Reminder',
     'sendDailyOffsPDF': 'Email Daily Offs'
 };
 
@@ -83,6 +84,7 @@ function showConfirmationDialog(message) {
 document.getElementById('syncHolidaysFromCalendar').addEventListener('click', () => triggerAction('syncHolidaysFromCalendar'));
 document.getElementById('sendDailyOffsPDF').addEventListener('click', () => triggerAction('sendDailyOffsPDF'));
 document.getElementById('sendPrincipalPencilsEmail').addEventListener('click', () => triggerAction('sendPrincipalPencilsEmail'));
+document.getElementById('sendHolidayEmail').addEventListener('click', () => triggerAction('sendHolidayEmail'));
 
 
 const correctPassword = "1975"; // Replace with your actual password
