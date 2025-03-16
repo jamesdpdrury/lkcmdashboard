@@ -3,7 +3,7 @@ const webAppUrl = 'https://script.google.com/macros/s/AKfycbyTxNQX_oYRx0Axm-skz9
 // Mapping of action names to user-friendly names
 const actionNames = {
     'syncHolidaysFromCalendar': 'Sync Cast Holidays',
-    'sendPrincipalPencilsEmail': 'Send Principal Pencils Email',
+    'soundDailyOffsPDF': 'Send Sound Principal Covers',
     'sendHolidayEmail': 'Send Holiday Email Reminder',
     'sendDailyOffsPDF': 'Email Daily Offs'
 };
@@ -83,7 +83,7 @@ function showConfirmationDialog(message) {
 
 document.getElementById('syncHolidaysFromCalendar').addEventListener('click', () => triggerAction('syncHolidaysFromCalendar'));
 document.getElementById('sendDailyOffsPDF').addEventListener('click', () => triggerAction('sendDailyOffsPDF'));
-document.getElementById('sendPrincipalPencilsEmail').addEventListener('click', () => triggerAction('sendPrincipalPencilsEmail'));
+document.getElementById('soundDailyOffsPDF').addEventListener('click', () => triggerAction('soundDailyOffsPDF'));
 document.getElementById('sendHolidayEmail').addEventListener('click', () => triggerAction('sendHolidayEmail'));
 
 
