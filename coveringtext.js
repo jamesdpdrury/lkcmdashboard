@@ -1,51 +1,52 @@
 function convertNewlinesToBreaks(text) {
-          return text.replace(/\n/g, '<br>');
-        }
-      
-        // Listen for messages from the iframe
-        window.addEventListener('message', function(event) {
-          var data = event.data;
-      
-         // Check if the data is of expected type/format
-         if (typeof data === 'object' && data !== null) {
-            // Update the content of the divs with the received data
-            document.getElementById("line1").innerHTML = (convertNewlinesToBreaks(data.dailyOffs || ''));
-            
-          }
-        });
-  
-        document.getElementById('backButton').addEventListener('click', () => {
-            window.history.back();
-        });
+    return String(text || '').replace(/\n/g, '<br>');
+}
 
-        document.getElementById('copyTextButton').addEventListener('click', () => {
-            // Get the text content of the div with class "coveringtext"
-            const coveringTextDiv = document.querySelector('.coveringtext');
-            const textToCopy = coveringTextDiv ? coveringTextDiv.innerText || coveringTextDiv.textContent : '';
-        
-            if (textToCopy) {
-                // Create a temporary textarea element
-                const tempTextArea = document.createElement('textarea');
-                tempTextArea.value = textToCopy;
-        
-                // Add the textarea to the document
-                document.body.appendChild(tempTextArea);
-        
-                // Select and copy the text
-                tempTextArea.select();
-                document.execCommand('copy');
-        
-                // Remove the textarea from the document
-                document.body.removeChild(tempTextArea);
-        
-                // Notify the user
-                alert('The daily offs text has been copied to your phones clipboard!');
-            } else {
-                // Notify the user if there's no text to copy
-                alert('No daily offs text found to copy!');
-            }
-        });
+async function loadDailyOffs() {
+    try {
+        const response = await fetch(
+            'https://script.google.com/macros/s/AKfycbyTxNQX_oYRx0Axm-skz99yV7C0__OIsDzRoT7WkGRxRlmD_l-oisTfUgQrOv-haQSRbA/exec'
+        );
 
-        document.getElementById('backButton').addEventListener('click', () => {
-          window.history.back();
-      });
+        const data = await response.json();
+
+        document.getElementById('line1').innerHTML =
+            convertNewlinesToBreaks(data.dailyOffs || '');
+
+    } catch (error) {
+        console.error('Failed to load daily offs text:', error);
+
+        document.getElementById('line1').innerHTML =
+            'Unable to load daily offs text';
+    }
+}
+
+loadDailyOffs();
+
+document.getElementById('backButton').addEventListener('click', () => {
+    window.history.back();
+});
+
+document.getElementById('copyTextButton').addEventListener('click', () => {
+    const coveringTextDiv = document.querySelector('.coveringtext');
+
+    const textToCopy = coveringTextDiv
+        ? coveringTextDiv.innerText || coveringTextDiv.textContent
+        : '';
+
+    if (textToCopy) {
+        const tempTextArea = document.createElement('textarea');
+
+        tempTextArea.value = textToCopy;
+        document.body.appendChild(tempTextArea);
+
+        tempTextArea.select();
+        document.execCommand('copy');
+
+        document.body.removeChild(tempTextArea);
+
+        alert('The daily offs text has been copied to your phones clipboard!');
+    } else {
+        alert('No daily offs text found to copy!');
+    }
+});
